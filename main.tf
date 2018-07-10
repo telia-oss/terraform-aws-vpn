@@ -8,8 +8,8 @@ resource "aws_customer_gateway" "customer-gateway" {
 }
 
 resource "aws_vpn_gateway" "vpn-gateway" {
-  vpc_id = "${var.vpc_id}"
-  tags = "${var.tags}"
+  vpc_id          = "${var.vpc_id}"
+  tags            = "${var.tags}"
   amazon_side_asn = "${var.amazon_side_asn}"
 }
 
@@ -37,5 +37,5 @@ resource "aws_vpn_connection" "main" {
   customer_gateway_id = "${aws_customer_gateway.customer-gateway.id}"
   type                = "ipsec.1"
   vpn_gateway_id      = "${aws_vpn_gateway.vpn-gateway.id}"
-  tags = "${var.tags}"
+  tags                = "${var.tags}"
 }

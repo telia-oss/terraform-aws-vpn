@@ -19,7 +19,7 @@ variable "private_subnet_count" {
 
 variable "private_subnets_route_table_ids" {
   description = "The id(s) of the private aws_route_table(s) to propagate routes into."
-  type = "list"
+  type        = "list"
 }
 
 variable "public_subnets_route_table_id" {
@@ -38,5 +38,5 @@ variable "vpc_id" {
 
 variable "amazon_side_asn" {
   description = "The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve."
-  default = "64951"
+  default     = "64951"
 }
