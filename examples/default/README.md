@@ -1,3 +1,3 @@
 ## examples/default
 
-Basic example which creates <INSERT> in the default VPC.
+Basic example which creates a VPN gateway and connection to a customer gateway and propagates the routes to the declared VPC.
