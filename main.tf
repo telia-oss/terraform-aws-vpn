@@ -13,23 +13,14 @@ resource "aws_vpn_gateway" "vpn-gateway" {
   amazon_side_asn = "${var.amazon_side_asn}"
 }
 
-data "aws_route_table" "public_subnets_route_table" {
-  route_table_id = "${var.public_subnets_route_table_id}"
-}
-
-data "aws_route_table" "private_subnets_route_tables" {
-  count          = "${var.private_subnet_count}"
-  route_table_id = "${element(var.private_subnets_route_table_ids,count.index)}"
-}
-
 resource "aws_vpn_gateway_route_propagation" "public_out" {
-  route_table_id = "${data.aws_route_table.public_subnets_route_table.route_table_id}"
+  route_table_id = "${var.public_subnets_route_table_id}"
   vpn_gateway_id = "${aws_vpn_gateway.vpn-gateway.id}"
 }
 
 resource "aws_vpn_gateway_route_propagation" "private_out" {
   count          = "${var.private_subnet_count}"
-  route_table_id = "${element(data.aws_route_table.private_subnets_route_tables.*.id,count.index)}"
+  route_table_id = "${element(var.private_subnets_route_table_ids,count.index)}"
   vpn_gateway_id = "${aws_vpn_gateway.vpn-gateway.id}"
 }
 
