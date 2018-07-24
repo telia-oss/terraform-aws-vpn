@@ -26,7 +26,7 @@ module "vpc" {
 module "vpn" {
   source                          = "../../"
   customer_gateway_bgp_asn        = "64952"
-  customer_gateway_ip             = "8.8.8.8"                                       //Non-private valid IP address needed for test. Google DNS used here!
+  customer_gateway_ip             = "203.0.113.10"                                  //Valid IP address needed for test. A TEST-NET-3 address used (https://tools.ietf.org/html/rfc5737)
   name_prefix                     = "${local.name_prefix}"
   private_subnet_count            = "0"
   private_subnets_route_table_ids = "${module.vpc.private_subnets_route_table_ids}"
