@@ -37,6 +37,6 @@ variable "vpc_id" {
 }
 
 variable "amazon_side_asn" {
-  description = "The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve."
+  description = "The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve. Default provided is a valid private ASN"
   default     = "64951"
 }
