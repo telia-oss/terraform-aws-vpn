@@ -19,7 +19,7 @@ provider "aws" {
 }
 
 locals {
-  name_prefix    = "vpn-example"
+  name_prefix    = "vpn-test-default"
   vpc_cidr_block = "10.10.0.0/16"
 
   tags = {
