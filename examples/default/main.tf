@@ -1,9 +1,25 @@
+terraform {
+  required_version = "0.11.11"
+
+  backend "s3" {
+    key            = "terraform-modules/development/terraform-aws-vpn/default.tfstate"
+    bucket         = "<test-account-id>-terraform-state"
+    dynamodb_table = "<test-account-id>-terraform-state"
+    acl            = "bucket-owner-full-control"
+    encrypt        = "true"
+    kms_key_id     = "<kms-key-id>"
+    region         = "eu-west-1"
+  }
+}
+
 provider "aws" {
-  region = "eu-west-1"
+  version             = "1.52.0"
+  region              = "eu-west-1"
+  allowed_account_ids = ["<test-account-id>"]
 }
 
 locals {
-  name_prefix    = "vpn-example"
+  name_prefix    = "vpn-test-default"
   vpc_cidr_block = "10.10.0.0/16"
 
   tags = {
