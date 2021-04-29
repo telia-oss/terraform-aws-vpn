@@ -2,6 +2,6 @@
 **/.terraform
 **/*.tfstate*
 crash.log
-
+/.terraform.lock.hcl
 # InteliJ IDE
 .idea/

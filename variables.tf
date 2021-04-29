@@ -19,7 +19,7 @@ variable "private_subnet_count" {
 
 variable "private_subnets_route_table_ids" {
   description = "The id(s) of the private aws_route_table(s) to propagate routes into."
-  type        = "list"
+  type        = list(any)
 }
 
 variable "public_subnets_route_table_id" {
@@ -28,7 +28,7 @@ variable "public_subnets_route_table_id" {
 
 variable "tags" {
   description = "A map of tags (key-value pairs) passed to resources."
-  type        = "map"
+  type        = map(any)
   default     = {}
 }
 
